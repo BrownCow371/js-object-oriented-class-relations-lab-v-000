@@ -13,10 +13,17 @@ class Driver {
 
   trips() {
     return store.trips.filter(trip => trip.driverID = this.id);
-    }
+  };
+  
     passengers() {
       return store.passengers.filter(passanger=> passanger.trips().filter(trip => trip.driverID === this.id));
-    }
+    };
+
+  //   passengers() {
+  // return this.trips().map(trip => {
+  //   return trip.passenger();
+  // });
+}
 }
 
 let passengerId = 0;
@@ -35,6 +42,8 @@ class Passenger {
   drivers(){
     return store.drivers.filter(driver=> driver.trips().filter(trip => trip.passengerId === this.id));
   };
+
+  
 }
 
 let tripId = 0;
